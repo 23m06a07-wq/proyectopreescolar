@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="es">
+<a>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Preescolar Pequeños Exploradores</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+
+  
+:root{
+  --pastel-mint:#A0E7E5;
+  --pastel-rose:#FFC6D3;
+  --pastel-yellow:#FFF1BA;
+  --pastel-lilac:#E7E3FF;
+  --text:#333;
+  --bg:#FFF9F6;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;scroll-behavior:smooth;}
+body{font-family:'Nunito',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--text);}
+header{
+  position:sticky; top:0; z-index:1000;
+  background:linear-gradient(90deg,var(--pastel-mint),var(--pastel-rose),var(--pastel-yellow));
+  background-size:300% 300%; animation:gradMove 12s ease infinite;
+  box-shadow:0 6px 16px rgba(0,0,0,.08);
+}
+@keyframes gradMove{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+.navbar{max-width:1100px;margin:auto;display:flex;align-items:center;justify-content:space-between;padding:10px 16px;gap:10px;}
+.brand{display:flex;align-items:center;gap:10px;color:#fff;text-decoration:none;font-weight:800;font-size:1.1rem}
+.brand i{font-size:1.4rem}
+.menu{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end}
+.menu a{display:flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;text-decoration:none;color:#333;font-weight:700;background:rgba(255,255,255,.85);backdrop-filter: blur(6px);transition:transform .2s, box-shadow .2s, background .2s;}
+.menu a:hover{transform:translateY(-2px);box-shadow:0 6px 14px rgba(0,0,0,.12);background:#fff}
+section{padding:80px 16px}
+.wrapper{max-width:1100px;margin:auto}
+h2{color:#ff7f8f;text-align:center;margin:0 0 10px}
+.subtitle{text-align:center;color:#555;margin:0 0 24px}
+.hero{display:grid;grid-template-columns:1.2fr 1fr;gap:20px;align-items:center}
+.hero .text h1{font-size:clamp(1.8rem,3.5vw,3rem);margin:0 0 10px;color:#ff7f8f}
+.hero .text p{font-size:1.1rem}
+.cta-group{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+.btn{border:0; border-radius:999px; padding:12px 18px; cursor:pointer; font-weight:800;background:linear-gradient(90deg,var(--pastel-rose),var(--pastel-mint));box-shadow:0 6px 14px rgba(0,0,0,.12);transition:transform .15s ease, filter .2s ease;}
+.btn:hover{transform:translateY(-2px); filter:brightness(1.05)}
+.btn.sec{background:linear-gradient(90deg,var(--pastel-yellow),#ffd3a3)}
+.hero img{width:100%; border-radius:18px; aspect-ratio:16/10; object-fit:cover;box-shadow:0 10px 24px rgba(0,0,0,.15);}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.card{background:#fff;border-radius:16px;padding:16px;box-shadow:0 8px 20px rgba(0,0,0,.08);transition:transform .15s, box-shadow .15s}
+.card:hover{transform:translateY(-4px); box-shadow:0 12px 26px rgba(0,0,0,.12)}
+.card .icon{font-size:28px}
+.table{width:100%; border-collapse:collapse; background:#fff; border-radius:16px; overflow:hidden;box-shadow:0 8px 20px rgba(0,0,0,.08); margin-top:14px}
+.table th{background:var(--pastel-rose); color:#5a4b4b}
+.table th, .table td{padding:12px 10px; text-align:center; border-bottom:1px solid #f1e7e7}
+.table tr:hover{background:#fff6f8}
+.carousel{position:relative; overflow:hidden; border-radius:16px; background:#fff;box-shadow:0 8px 20px rgba(0,0,0,.08)}
+.track{display:flex; transition:transform .5s ease}
+.slide{min-width:100%;}
+.slide img{width:100%; display:block; aspect-ratio:16/9; object-fit:cover}
+.carousel .navBtn{position:absolute; top:50%; transform:translateY(-50%);border:0; background:rgba(255,255,255,.9); padding:10px; border-radius:50%; cursor:pointer;box-shadow:0 6px 14px rgba(0,0,0,.12)}
+.carousel .prev{left:10px} .carousel .next{right:10px}
+.newsgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.news{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 8px 20px rgba(0,0,0,.08)}
+.news img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.news .pad{padding:12px}
+form{background:#fff;border-radius:16px;padding:16px;box-shadow:0 8px 20px rgba(0,0,0,.08)}
+label{font-weight:700;display:block;margin:10px 0 6px}
+input,select,textarea{width:100%;padding:10px;border:1px solid #e6e0e0;border-radius:10px;background:#fff;outline:none}
+.row{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.pay-toggle{display:flex;gap:10px;margin:10px 0}
+.badge{display:inline-block;background:var(--pastel-lilac);padding:6px 10px;border-radius:999px;font-weight:800;margin-top:6px}
+.contact-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:16px}
+.map{border:0; width:100%; height:320px; border-radius:16px; box-shadow:0 8px 20px rgba(0,0,0,.08)}
+.socials{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+.socials a{display:inline-flex;align-items:center;gap:8px;text-decoration:none;background:#fff;border-radius:999px;padding:10px 14px;box-shadow:0 6px 14px rgba(0,0,0,.08);color:#444;font-weight:800;}
+.socials a:hover{transform:translateY(-2px)}
+footer{padding:24px;text-align:center;color:#555}
+.reveal{opacity:0; transform:translateY(24px); transition:all .7s ease}
+.reveal.show{opacity:1; transform:none}
+@media (max-width: 860px){
+  .hero{grid-template-columns:1fr; text-align:center}
+  .contact-grid{grid-template-columns:1fr}
+  .menu{justify-content:center}
+}
+
+#foro {
+    padding: 40px;
+    background-color: #fef6f9; /* Rosa pastel suave */
+}
+
+#foro h2 {
+    text-align: center;
+    color: #ff80ab;
+    font-family: 'Nunito', sans-serif;
+}
+
+.comunicados {
+    background: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    border: 2px solid #ffb3c1;
+}
+
+.chat-container {
+    background: #ffffff;
+    border-radius: 10px;
+    border: 2px solid #a2d5f2;
+    padding: 15px;
+}
+
+.chat-mensajes {
+    height: 200px;
+    overflow-y: auto;
+    background: #e8f8f5;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.mensaje {
+    padding: 5px;
+    margin-bottom: 5px;
+    background: #d0f0c0;
+    border-radius: 8px;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.mensaje strong {
+    color: #00796b;
+}
+
+.chat-input {
+    display: flex;
+    gap: 5px;
+}
+
+.chat-input input {
+    flex: 1;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.chat-input button {
+    background: #81d4fa;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.chat-input button:hover {
+    background: #4fc3f7;
+    color: white;
+}
+
+@keyframes fadeIn {
+    from {opacity: 0; transform: translateY(5px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+
+</style>
+</head>
+<body>
+
+<header>
+  <div class="navbar">
+    <h6 class="brand" href="#inicio"><i class="fa-solid fa-school"></i> Pequeños Exploradores Preescolar</h6>
+    <nav class="menu">
+      <a href="#inicio"><i class="fa-solid fa-house"></i> Inicio</a>
+      <a href="#nosotros"><i class="fa-solid fa-people-group"></i> Nosotros</a>
+      <a href="#servicios"><i class="fa-solid fa-book"></i> Servicios</a>
+      <a href="#galeria"><i class="fa-solid fa-images"></i> Galería</a>
+      <a href="#noticias"><i class="fa-solid fa-bullhorn"></i> Noticias</a>
+      <a href="#inscripcion"><i class="fa-solid fa-file-pen"></i> Inscripción</a>
+      <a href="#contacto"><i class="fa-solid fa-location-dot"></i> Contacto</a>
+      <li><a href="#foro"><i class="fas fa-comments"></i> Foro / Chat</a></li>
+    </nav>
+  </div>
+</header>
+
+<section id="inicio" class="reveal">
+  <div class="wrapper hero">
+    <div class="text">
+      <h1>Aprender jugando, crecer explorando</h1>
+      <p>Un preescolar con enfoque en el juego, la creatividad y los valores. Espacios seguros, maestros con vocación y una comunidad que acompaña a cada familia.</p>
+      <div class="badge">Inscripciones abiertas</div>
+      <div class="cta-group">
+        <a class="btn" href="#inscripcion"><i class="fa-solid fa-paper-plane"></i> Inscríbete</a>
+        <a class="btn sec" href="#servicios"><i class="fa-solid fa-calendar-days"></i> Ver horarios</a>
+      </div>
+    </div>
+    <img src="school.jpg" alt="Portada del preescolar"/>
+  </div>
+</section>
+
+<section id="nosotros" class="reveal">
+  <div class="wrapper">
+    <h2>Nosotros</h2>
+    <p class="subtitle">Filosofía, misión y equipo comprometido con la primera infancia.</p>
+    <div class="cards">
+      <div class="card"><div class="icon">🎓</div><h3>Filosofía</h3><p>Formar niñas y niños felices, creativos y seguros, a través de experiencias significativas.</p></div>
+      <div class="card"><div class="icon">🧸</div><h3>Método</h3><p>Aprendizaje basado en el juego, proyectos y estimulación temprana.</p></div>
+      <div class="card"><div class="icon">👩‍🏫</div><h3>Docentes</h3><p>Equipo certificado con capacitación constante y atención personalizada.</p></div>
+      <div class="card"><div class="icon">🏫</div><h3>Historia</h3><p>Fundado en 2010, hemos acompañado a cientos de familias con calidez y profesionalismo.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="servicios" class="reveal" style="background:linear-gradient(180deg,#fff, #fff7f0)">
+  <div class="wrapper">
+    <h2>Servicios y Programa</h2>
+    <p class="subtitle">Horarios claros y actividades variadas para un desarrollo integral.</p>
+    <div class="row">
+      <div class="card">
+        <h3>Horario General</h3>
+        <p>🕗 <strong>8:00 a.m. – 2:00 p.m.</strong> (Lunes a Viernes)</p>
+        <p>Atención extendida opcional.</p>
+      </div>
+      <div class="card">
+        <h3>Áreas</h3>
+        <p>🎨 Arte y Manualidades</p>
+        <p>🎵 Música e Inglés</p>
+        <p>🤸 Educación Física</p>
+        <p>🌱 Educación Ambiental</p>
+      </div>
+    </div>
+    <h3 style="margin-top:16px;text-align:center">Programa de Actividades</h3>
+    <table class="table">
+      <thead><tr><th>Día</th><th>Actividad</th><th>Horario</th></tr></thead>
+      <tbody>
+        <tr><td>Lunes</td><td>Música</td><td>09:00 - 10:00</td></tr>
+        <tr><td>Martes</td><td>Arte</td><td>10:15 - 11:15</td></tr>
+        <tr><td>Miércoles</td><td>Inglés</td><td>09:30 - 10:30</td></tr>
+        <tr><td>Jueves</td><td>Educación Ambiental</td><td>11:45 - 12:30</td></tr>
+        <tr><td>Viernes</td><td>Juegos y Recreación</td><td>11:00 - 12:30</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="galeria" class="reveal">
+  <div class="wrapper">
+    <h2>Galería</h2>
+    <p class="subtitle">Momentos especiales en actividades y eventos.</p>
+    <div class="carousel" aria-label="Carrusel de imágenes">
+      <div class="track" id="track">
+        <div class="slide"><img src="docente1.jpg" alt="Evento 1"></div>
+        <div class="slide"><img src="niño.jpg" alt="Evento 2"></div>
+        <div class="slide"><img src="navidd.jpg" alt="Evento 2"></div>
+        <div class="slide"><img src="docente3.jpg" alt="Evento 2"></div>
+        <div class="slide"><img src="84467BCE-97C3-4650-93E9-9C1833196501-768x768.jpeg" 
+          alt="Evento 3"></div>
+          <div class="slide"><img src="Captura-de-pantalla-2023-02-15-210757.png" alt="Evento 2"></div>
+      </div>
+      <button class="navBtn prev" id="prev" aria-label="Anterior"><i class="fa-solid fa-chevron-left"></i></button>
+      <button class="navBtn next" id="next" aria-label="Siguiente"><i class="fa-solid fa-chevron-right"></i></button>
+    </div>
+  </div>
+</section>
+
+<section id="noticias" class="reveal" style="background:linear-gradient(180deg,#fff,#eefcff)">
+  <div class="wrapper">
+    <h2>Noticias y Avisos</h2>
+    <p class="subtitle">Periódico mural con fechas y fotos.</p>
+    <div class="newsgrid">
+      <article class="news">
+        <img src="zoo.jpg" alt="Visita al zoológico">
+        <div class="pad"><h3>Visita al Zoológico</h3><p><strong>10 de Agosto</strong> — Convivencia y aprendizaje sobre fauna.</p></div>
+      </article>
+      <article class="news">
+        <img src="primavera.jpg" alt="Festival de primavera">
+        <div class="pad"><h3>Festival de Primavera</h3><p><strong>20 de Septiembre</strong> — Presentaciones y feria de proyectos.</p></div>
+      </article>
+      <article class="news">
+        <img src="juegos_para_fiestas_infantiles_52506_orig.jpg" alt="Carrera de colores">
+        <div class="pad"><h3>Carrera de Colores</h3><p><strong>5 de Octubre</strong> — Actividad física y diversión familiar.</p></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="inscripcion" class="reveal">
+  <div class="wrapper">
+    <h2>Inscripción</h2>
+    <p class="subtitle">Completa los datos y elige un método de pago (simulado).</p>
+    <form id="formInscripcion" onsubmit="event.preventDefault(); alert('¡Gracias! Esto es una simulación. No se ha procesado ningún pago.'); this.reset(); document.querySelector('#pagoTarjeta').style.display='none'; document.querySelector('#pagoTransfer').style.display='none';">
+      <div class="row">
+        <div><label>Nombre del alumno</label><input required type="text" placeholder="Nombre y apellidos"/></div>
+        <div><label>Fecha de nacimiento</label><input required type="date"/></div>
+        <div><label>Grado</label><select required><option value=''>Selecciona</option><option>1° Preescolar</option><option>2° Preescolar</option><option>3° Preescolar</option></select></div>
+      </div>
+      <div class="row">
+        <div><label>Padre/Madre/Tutor</label><input required type="text" placeholder="Nombre completo"/></div>
+        <div><label>Teléfono</label><input required type="tel" placeholder="55 0000 0000"/></div>
+        <div><label>Correo electrónico</label><input required type="email" placeholder="correo@dominio.com"/></div>
+      </div>
+      <div class="row">
+        <div><label>Mes actual</label><input type="text" placeholder="Ej. Septiembre"/></div>
+        <div><label>Meses pagados</label><input type="number" min="0" value="0"/></div>      
+      </div>
+      <label>Método de pago</label>
+      <div class="pay-toggle">
+        <label><input type="radio" name="metodo" value="tarjeta" onchange="togglePago(this.value)"> Tarjeta</label>
+        <label><input type="radio" name="metodo" value="transferencia" onchange="togglePago(this.value)"> Transferencia</label>
+      </div>
+      <div id="pagoTarjeta" style="display:none">
+        <div class="row">
+          <div><label>Número de tarjeta</label><input type="text" placeholder="**** **** **** ****" maxlength="19"></div>
+          <div><label>Vence (MM/AA)</label><input type="text" placeholder="MM/AA" maxlength="5"></div>
+          <div><label>CVV</label><input type="password" placeholder="***" maxlength="4"></div>
+        </div>
+        <div class="row">
+          <div><label>Nombre en la tarjeta</label><input type="text" placeholder="Como aparece en la tarjeta"></div>
+          <div><label>Importe</label><input type="number" min="0" step="0.01" placeholder="0.00"></div>
+        </div>
+      </div>
+      <div id="pagoTransfer" style="display:none">
+        <div class="row">
+          <div><label>Banco</label><input type="text" placeholder="Nombre del banco"></div>
+          <div><label>CLABE / Cuenta</label><input type="text" placeholder="000000000000000000"></div>
+          <div><label>Importe</label><input type="number" min="0" step="0.01" placeholder="0.00"></div>
+        </div>
+        <p class="badge">Enviar comprobante al correo: pagos@preescolar.com (simulado)</p>
+      </div>
+      <div style="margin-top:12px">
+        <button class="btn" type="submit"><i class="fa-solid fa-check"></i> Enviar inscripción</button>
+        <span style="font-size:.9rem;color:#666;margin-left:8px"></span>
+      </div>
+    </form>
+  </div>
+</section>
+
+<section id="contacto" class="reveal" style="background:linear-gradient(180deg,#fff,#f5fffe)">
+  <div class="wrapper">
+    <h2>Contacto</h2>
+    <p class="subtitle">Ubicación, redes y buzón de sugerencias.</p>
+    <div class="contact-grid">
+      <iframe class="map" src="https://www.google.com/maps?q=San+Luis+Potosi&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" aria-label="Mapa"></iframe>
+      <div class="card">
+        <h3>Datos de contacto</h3>
+        <p>📍 Calle Centro 123, San Luis Potosí</p>
+        <p>📞 Tel/WhatsApp: 44 4434 5678</p>
+        <p>✉️ contacto@pequenosexploradores.com</p>
+        <div class="socials">
+          <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i> Facebook</a>
+          <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i> Instagram</a>
+          <a href="#" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+        </div>
+        <hr style="border:none;height:1px;background:#f1e7e7;margin:14px 0">
+        <form onsubmit="event.preventDefault(); alert('¡Gracias por tu mensaje!'); this.reset();">
+          <label>Mensaje o sugerencia</label>
+          <textarea rows="4" placeholder="Escribe tu mensaje"></textarea>
+          <button class="btn" style="margin-top:8px" type="submit"><i class="fa-solid fa-paper-plane"></i> Enviar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="foro" class="section pastel-bg">
+    <h2>Foro / Chat Escolar</h2>
+
+    <!-- Comunicados oficiales -->
+    <div class="comunicados">
+        <h3>📢 Comunicados del Maestro</h3>
+        <ul id="listaComunicados">
+            <li>Recordatorio: Mañana traer materiales para manualidades.</li>
+            <li>Excursión el viernes a las 9:00 AM.</li>
+        </ul>
+    </div>
+
+    <!-- Chat -->
+    <div class="chat-container">
+        <div id="chatMensajes" class="chat-mensajes"></div>
+
+        <div class="chat-input">
+            <input type="text" id="nombreUsuario" placeholder="Tu nombre">
+            <input type="text" id="mensajeUsuario" placeholder="Escribe tu mensaje...">
+            <button onclick="enviarMensaje()">Enviar</button>
+        </div>
+    </div>
+
+</section>
+
+<footer>
+  © 2025 Preescolar Pequeños Exploradores — Todos los derechos reservados
+</footer>
+
+<script>
+const obs = new IntersectionObserver((ents)=>{
+  ents.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('show') })
+},{threshold:.2});
+document.querySelectorAll('.reveal').forEach(s=>obs.observe(s));
+const track = document.getElementById('track');
+const slides = document.querySelectorAll('.slide');
+let idx = 0;
+function update(){ track.style.transform = `translateX(-${idx*100}%)`; }
+document.getElementById('prev').addEventListener('click',()=>{ idx = (idx - 1 + slides.length) % slides.length; update(); });
+document.getElementById('next').addEventListener('click',()=>{ idx = (idx + 1) % slides.length; update(); });
+setInterval(()=>{ idx = (idx + 1) % slides.length; update(); }, 5000);
+function togglePago(val){
+  document.getElementById('pagoTarjeta').style.display = val==='tarjeta' ? 'block':'none';
+  document.getElementById('pagoTransfer').style.display = val==='transferencia' ? 'block':'none';
+}
+
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    cargarMensajes();
+});
+
+function enviarMensaje() {
+    const nombre = document.getElementById("nombreUsuario").value.trim();
+    const mensaje = document.getElementById("mensajeUsuario").value.trim();
+
+    if (!nombre || !mensaje) {
+        alert("Por favor, escribe tu nombre y mensaje.");
+        return;
+    }
+
+    const mensajeObj = { nombre, texto: mensaje, hora: new Date().toLocaleTimeString() };
+
+    let mensajes = JSON.parse(localStorage.getItem("chatMensajes")) || [];
+    mensajes.push(mensajeObj);
+    localStorage.setItem("chatMensajes", JSON.stringify(mensajes));
+
+    document.getElementById("mensajeUsuario").value = "";
+    cargarMensajes();
+}
+
+function cargarMensajes() {
+    const contenedor = document.getElementById("chatMensajes");
+    contenedor.innerHTML = "";
+    let mensajes = JSON.parse(localStorage.getItem("chatMensajes")) || [];
+
+    mensajes.forEach(msg => {
+        let div = document.createElement("div");
+        div.classList.add("mensaje");
+        div.innerHTML = `<strong>${msg.nombre}</strong> [${msg.hora}]: ${msg.texto}`;
+        contenedor.appendChild(div);
+    });
+
+    contenedor.scrollTop = contenedor.scrollHeight;
+}
+</script>
+
+
+
+</body>
+</html>
